@@ -1,0 +1,81 @@
+/* custom sass code goes here */
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
+* {
+  font-family: 'Raleway';
+}
+
+:root {
+  --footer-height: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  :root {
+    --footer-height: 160px;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: var(--footer-height);
+}
+
+.dpo-item {
+  transition: padding .2s;
+}
+
+.dpo-item:nth-child(odd) {
+  background: $light;
+}
+
+.dpo-item:hover() {
+  background: $secondary;
+  color: $dark;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.footer {
+  position: absolute; 
+  left: 0 ; right: 0; bottom: 0; 
+  min-height: var(--footer-height);
+}
+
+.footer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.definition-group {
+  color: gray;
+}
+
+.definition-group > .definition-group{
+  color: black;
+}
+
+.definition-group > .definition-group > .definition-group{
+  color: gray;
+}
+
+.definition-group > .definition-group > .definition-group > .definition-group{
+  color: black;
+}
+
+.definition-group > .definition-group > .definition-group > .definition-group > .definition-group{
+  color: gray;
+}
+
+.definition-group > .definition-group > .definition-group > .definition-group > .definition-group > .definition-group{
+  color: black;
+}
+

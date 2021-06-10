@@ -1,0 +1,22 @@
+Oxford API Information:
+https://developer.oxforddictionaries.com/documentation/getting_started
+
+Morphology API Information:
+https://cloud.google.com/natural-language/docs/basics
+https://cloud.google.com/natural-language/docs/setup
+https://cloud.google.com/natural-language/docs/morphology
+https://cloud.google.com/natural-language/docs/reference/rest/v1/Token
+$env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\PC\Documents\VS-Code-Projects\React\definition-dissector\server\definition-dissector-315408-376109d92afb.json"
+
+Problems: nouns where the definition starts with a, 
+look at token link and make converter for POS recognition to work with oxford
+
+--------------------------------------------------------------------------------
+
+https://stackoverflow.com/questions/40795906/onchange-event-for-react-child-component-to-update-state
+
+https://stackoverflow.com/questions/55729742/react-typescript-argument-of-type-x-number-any-is-not-assignable-to
+
+useHooks.com
+awsLambda for native
+awsAmplify for web
