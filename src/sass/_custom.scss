@@ -55,6 +55,17 @@ body {
   width: 100%;
 }
 
+//CLICK TO DEFINE ----------------------------------------------------------------------
+
+.individual-word {
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.individual-word:hover() {
+  color: $secondary;
+}
+
 .definition-group {
   color: gray;
 }
@@ -78,4 +89,3 @@ body {
 .definition-group > .definition-group > .definition-group > .definition-group > .definition-group > .definition-group{
   color: black;
 }
-

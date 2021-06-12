@@ -76,10 +76,10 @@ function ClickToDefine({word, language, definitionPickerFunction, setEnterFuncti
   function makeWordSingular(word) {
     let newWord = word;
     if(word.morphology.number == 'PLURAL') {
-      if(!(word.word.slice(word.word.length-3) == 'ies')) {
-        newWord.word = word.word.slice(0, -1)
-      } else {
+      if(word.word.slice(word.word.length-3) == 'ies') {
         newWord.word = word.word.slice(0, -3) + "y"
+      } else if(word.word.slice(word.word.length-1) == 's') {
+        newWord.word = word.word.slice(0, -1)
       }
     }
     return newWord
@@ -99,8 +99,14 @@ function ClickToDefine({word, language, definitionPickerFunction, setEnterFuncti
   }
 
   let trimDefinitionData = (data) => {
+    let newData = data
+    if(word.morphology.tag == "NOUN"){
+      if(data[0].word == 'a' || data[0].word == 'an') {
+        data.shift()
+      }
+    }
     //trimming a or an off of the beginning
-    return data;
+    return newData;
   }
 
   function isThereSpaceBefore(value, index) {
@@ -138,6 +144,7 @@ function ClickToDefine({word, language, definitionPickerFunction, setEnterFuncti
                 spaceBefore: isThereSpaceBefore(value, index),
               }} 
               definitionPickerFunction={definitionPickerFunction} 
+              //literallyNothing avoids an error
               setEnterFunction={(literallyNothing) => {}}
               language={language}/>
             })
@@ -145,7 +152,7 @@ function ClickToDefine({word, language, definitionPickerFunction, setEnterFuncti
           </span>
           <span className="group-bar"></span>
         </span> : 
-        <span className="" onClick={defineWord}>{word.spaceBefore}{word.word}</span>
+        <span className="individual-word" onClick={defineWord}>{word.spaceBefore}{word.word}</span>
       }
     </Fragment>
   )

@@ -1,9 +1,10 @@
-import axios from 'axios'
 import * as React from 'react'
 import TextInput from '../components/TextInput'
 import ClickToDefine from '../components/ClickToDefine'
 import Footer from '../components/Footer'
-import {word} from '../utilities/types'
+import {word} from '../helpers/types'
+import {spellMorphTag} from '../helpers/POSConversionObjects'
+
 
 type myStates = {
   //Main search is a string so that it can be referenced from a variable
@@ -42,7 +43,6 @@ const emptyWord = {
     voice: 'VOICE_UNKNOWN'
   }
 }
-
 
 export default class DefinitionDissectorMain extends React.Component<myProps, myStates> {
   constructor(props) {
@@ -129,11 +129,12 @@ export default class DefinitionDissectorMain extends React.Component<myProps, my
     this.setState({definitionPickerMeanings: meanings})
     //comparing parts of speech
     let meaningsIndex;
+    //if only one options avoid logic
     if (meanings.length == 1 && word.morphology.tag != "PICK POS MANUALLY") {
       meaningsIndex = 0
     } else {
       for (let i in meanings) {
-        if(meanings[i].partOfSpeech.toUpperCase() == word.morphology.tag && meanings[i].definitions != undefined){
+        if(meanings[i].partOfSpeech.toUpperCase() == spellMorphTag[word.morphology.tag] && meanings[i].definitions != undefined){
           meaningsIndex = i
         }
       }
